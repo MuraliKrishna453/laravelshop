@@ -1,5 +1,12 @@
 const mix = require('laravel-mix');
-
+mix.webpackConfig({
+   resolve: {
+      extensions: [".js", ".vue", ".scss"],
+      alias: {
+         "@": __dirname + "/resources"
+      }
+   }
+})
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

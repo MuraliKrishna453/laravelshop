@@ -26,3 +26,21 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+let accessToken = localStorage.getItem("token");
+if (!!accessToken && accessToken.length && accessToken !== 'undefined') {
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
+    axios.get('/api/user')
+        .then(response => {
+            localStorage.setItem("user", JSON.stringify(response.data))
+        })
+        .catch(error => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+            window.axios.defaults.headers.common['Authorization'] = '';
+        });
+}
+else {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+}
