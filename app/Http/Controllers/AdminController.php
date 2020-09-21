@@ -47,7 +47,7 @@ class AdminController extends Controller {
     public function show(User $user) {
         //
         if ($user->id != $this->user->id) {
-            return response()->json("forbidden", 403);
+            return response()->json("forbidden",403);
         }
         return response()->json($user, 200);
     }
@@ -62,7 +62,7 @@ class AdminController extends Controller {
     public function update(Request $request, User $user) {
         //
         if ($user->id != $this->user->id) {
-            return response()->json("Cannot update", 403);
+            return response("Cannot update", 403);
         }
         $request['id'] = $this->user->id;
         $this->validator($request->all())->validate();

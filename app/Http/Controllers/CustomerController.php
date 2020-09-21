@@ -53,7 +53,7 @@ class CustomerController extends Controller {
         }
         return response()->json($user, 200);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *

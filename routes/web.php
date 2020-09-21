@@ -11,4 +11,19 @@
 |
 */
 
-Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+Route::get('/', 'SinglePageController@index');
+Route::post('/books', 'BookController@store');
+Route::patch('/books/{book}', 'BookController@update');
+Route::delete('/books/{book}', 'BookController@destroy');
+
+
+Route::post('/authors', 'AuthorController@store');
+
+Route::post('/checkout/{book}', 'CheckoutBookController@store');
+Route::post('/checkin/{book}', 'CheckoutBookController@checkin');
+
+
+
+
+
+

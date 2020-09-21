@@ -1,22 +1,7 @@
-import "./bootstrap";
-import Vue from "vue";
+/**
+ * First, we will load all of this project's Javascript utilities and other
+ * dependencies. Then, we will be ready to develop a robust and powerful
+ * application frontend using useful Laravel and JavaScript libraries.
+ */
 
-import App from "@/js/layouts/App";
-
-import vuetify from "@/js/plugins/vuetify";
-import router from "./routes";
-
-import store from "./stores";
-
-import Vuex from "vuex";
-Vue.use(Vuex);
-
-const app = new Vue({
-    el: "#app",
-    vuetify,
-    router,
-    store,
-    render: h => h(App)
-})
-
-export default app;
+require('./bootstrap');
